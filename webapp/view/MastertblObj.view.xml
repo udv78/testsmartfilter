@@ -1,0 +1,36 @@
+<mvc:View
+	controllerName="testsmartfilter.testsmartfilter.controller.MastertblObj"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false"
+		busy="{mastertblObjView>/busy}"
+		busyIndicatorDelay="{mastertblObjView>/delay}">
+
+		<semantic:titleHeading>
+			<Title text="{CODE}" />
+		</semantic:titleHeading>
+
+		<semantic:headerContent>
+			<Title text="Наименование: {NAME}" />
+			<ObjectNumber/>
+			<Text text="Номер: {NUM}" />
+			<ObjectNumber/>
+			<Text text="Дата: {DT}" />
+			<ObjectNumber/>
+			<Text text="SPRTBL: {MASTTBL_SPR/CODE}" />
+			<ObjectNumber/>
+		</semantic:headerContent>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
+	</semantic:SemanticPage>
+
+</mvc:View>

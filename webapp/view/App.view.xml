@@ -1,0 +1,22 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="testsmartfilter.testsmartfilter.controller.App"
+	displayBlock="true"
+	xmlns="sap.m">
+
+	<App id="app"
+		 busy="{appView>/busy}"
+		 busyIndicatorDelay="{appView>/delay}"/>
+		<TileContainer
+			id="container"
+			tiles="{/TileCollection}">
+			<StandardTile
+				icon="{icon}"
+				type="{type}"
+				number="{number}"
+				numberUnit="{numberUnit}"
+				title="{title}"
+				info="{info}"
+				infoState="{infoState}" />
+		</TileContainer>
+</mvc:View>

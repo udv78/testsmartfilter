@@ -1,0 +1,16 @@
+<mvc:View controllerName="testsmartfilter.testsmartfilter.controller.Menu"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml">
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Worklist"
+		subheader="Список" press="pressWorkList">
+		<TileContent footer="Жми скорее">
+			<ImageContent src="sap-icon://home-share" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="MaterTbl"
+		subheader="Таблица" press="pressMaterTbl">
+		<TileContent>
+			<ImageContent src="test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png" />
+		</TileContent>
+	</GenericTile>
+</mvc:View>

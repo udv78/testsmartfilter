@@ -1,0 +1,105 @@
+<mvc:View
+	controllerName="testsmartfilter.testsmartfilter.controller.Mastertbl"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:l="sap.ui.layout">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="MasterTbl" />
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="MASTERTBL" search="onFilter">
+				<smartFilterBar:controlConfiguration>
+					<smartFilterBar:ControlConfiguration key="SPRID" label="My SPR ID" displayBehaviour="descriptionAndId"/>
+
+				</smartFilterBar:controlConfiguration>
+			</smartFilterBar:SmartFilterBar>					
+		</semantic:headerContent>			
+		<semantic:content>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/MASTERTBL',
+					sorter: {
+						path: 'CODE',
+						descending: false
+					},
+					parameters: {
+						expand: 'MASTTBL_SPR'
+					}					
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished="onUpdateFinished">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search="onSearch"
+							width="auto">
+						</SearchField>
+						<Button id="addButton" icon="sap-icon://add" press="onAdd" />
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+					</Column>
+					<Column id="numColumn">
+						<Text text="Число" id="numColumnTitle"/>
+					</Column>
+					<Column id="dtColumn">
+						<Text text="Дата" id="dtColumnTitle"/>
+					</Column>
+					<Column id="sprColumn">
+						<Text text="SPRTBL" id="sprtblColumnTitle"/>
+					</Column>
+					<Column id="buttonColumn" hAlign="End" width="5em" >
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press="onPress">
+						<cells>
+							<ObjectIdentifier
+								title="{CODE}" text="{NAME}"/>
+							<Text text="{NUM}"/>
+							<Text text="{DT}"/>
+							<Text text="{MASTTBL_SPR/CODE}"/>
+							<HBox id="buttons">
+								<items>
+									<Button icon="sap-icon://edit" id="edit" press="onEdit" />	
+									<Button icon="sap-icon://delete" id="delete" press="onDelete" />	
+								</items>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
+	</semantic:SemanticPage>
+
+</mvc:View>
